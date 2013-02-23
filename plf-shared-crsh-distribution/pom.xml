@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>plf-public-distributions</artifactId>
+    <groupId>org.exoplatform.platform.distributions</groupId>
+    <version>4.0.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>plf-shared-crsh-distribution</artifactId>
+  <packaging>pom</packaging>
+  <name>eXo Platform Public Distributions - Shared CRaSH Distribution</name>
+  <dependencies>
+    <!-- CRaSH Distribution -->
+    <dependency>
+      <groupId>org.crsh</groupId>
+      <artifactId>crsh.distrib</artifactId>
+      <version>${org.crsh.version}</version>
+      <type>tar.gz</type>
+      <exclusions>
+        <!-- Exclude all deps to not pollute PLF itself -->
+        <exclusion>
+          <artifactId>crsh.cmdline</artifactId>
+          <groupId>org.crsh</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>crsh.shell.core</artifactId>
+          <groupId>org.crsh</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>crsh.shell.telnet</artifactId>
+          <groupId>org.crsh</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>crsh.shell.ssh</artifactId>
+          <groupId>org.crsh</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>crsh.jcr.core</artifactId>
+          <groupId>org.crsh</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>crsh.doc</artifactId>
+          <groupId>org.crsh</groupId>
+        </exclusion>
+      </exclusions>
+      <optional>true</optional>
+    </dependency>
+    <!-- CRaSH eXo JCR plugin -->
+    <dependency>
+      <groupId>org.crsh</groupId>
+      <artifactId>crsh.jcr.exo</artifactId>
+      <version>${org.crsh.version}</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>tools</artifactId>
+          <groupId>com.sun</groupId>
+        </exclusion>
+      </exclusions>
+      <optional>true</optional>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>project-resources-zip</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <descriptors>
+                <descriptor>${project.basedir}/src/main/assemblies/crsh-distribution-for-plf.xml</descriptor>
+              </descriptors>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

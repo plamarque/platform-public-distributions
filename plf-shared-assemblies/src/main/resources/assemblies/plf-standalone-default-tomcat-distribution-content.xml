@@ -621,15 +621,6 @@
       <outputFileNameMapping>intranet-gadget.war</outputFileNameMapping>
       <useProjectArtifact>false</useProjectArtifact>
     </dependencySet>
-    <!-- Various external wars -->
-    <dependencySet>
-      <outputDirectory>/webapps</outputDirectory>
-      <includes>
-        <include>org.crsh:crsh.jcr.exo:war</include>
-      </includes>
-      <outputFileNameMapping>crash.war</outputFileNameMapping>
-      <useProjectArtifact>false</useProjectArtifact>
-    </dependencySet>
     <!-- Platform DEFAULT website wars -->
     <dependencySet>
       <outputDirectory>/webapps</outputDirectory>
@@ -663,6 +654,16 @@
         <include>org.exoplatform.platform:platform-sample-acme-intranet-portlet:war</include>
       </includes>
       <outputFileNameMapping>acme-intranet-portlet.war</outputFileNameMapping>
+      <useProjectArtifact>false</useProjectArtifact>
+    </dependencySet>
+    <!-- Additional Stuffs -->
+    <!-- CRaSH -->
+    <dependencySet>
+      <outputDirectory>/tools</outputDirectory>
+      <includes>
+        <include>org.exoplatform.platform.distributions:plf-shared-crsh-distribution:zip</include>
+      </includes>
+      <unpack>true</unpack>
       <useProjectArtifact>false</useProjectArtifact>
     </dependencySet>
   </dependencySets>

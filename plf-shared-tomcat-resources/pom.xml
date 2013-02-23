@@ -64,6 +64,13 @@
       <artifactId>plf-shared-tomcat-pc-creator-listener</artifactId>
       <version>${project.version}</version>
     </dependency>
+    <!-- Custom CRaSH distribution forLF -->
+    <dependency>
+      <groupId>org.exoplatform.platform.distributions</groupId>
+      <artifactId>plf-shared-crsh-distribution</artifactId>
+      <version>${project.version}</version>
+      <type>zip</type>
+    </dependency>
     <!-- Required by logback for colorized console on windows -->
     <dependency>
       <groupId>org.fusesource.jansi</groupId>
